@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".framework.presentation.features.currency_rate.CurrencyRateFragment">
+
+    <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            style="@style/AppTheme.TextView.Title"
+            android:id="@+id/currencyRateSymbolIcon" android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/margin_medium"/>
+    <TextView
+            tools:text="@string/currency_rate_title_example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currencyRateTitleLabel"
+            style="@style/AppTheme.TextView.Title"
+            app:layout_constraintTop_toTopOf="@+id/currencyRateSymbolIcon"
+            app:layout_constraintBottom_toBottomOf="@+id/currencyRateSymbolIcon"
+            app:layout_constraintStart_toEndOf="@+id/currencyRateSymbolIcon" android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintEnd_toStartOf="@+id/cardView2" android:layout_marginEnd="@dimen/margin_medium"/>
+    <TextView
+            tools:text="@string/currency_rate_last_example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currencyRateLastValueLabel"
+            style="@style/AppTheme.TextView.Title.Big"
+            android:layout_marginTop="@dimen/margin_medium"
+            app:layout_constraintTop_toTopOf="@+id/marginGuidelineTop"
+            android:layout_marginStart="@dimen/margin_medium" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="@dimen/margin_medium" app:layout_constraintEnd_toStartOf="@+id/cardView2"/>
+
+    <TextView
+            tools:text="@string/currency_rate_change_example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/currencyRateChangeLabel"
+            style="@style/AppTheme.TextView.Label.Medium"
+            app:layout_constraintStart_toEndOf="@+id/currencyRateTrendIcon"
+            android:layout_marginStart="@dimen/margin_medium"
+            app:layout_constraintTop_toTopOf="@+id/currencyRateTrendIcon"
+            app:layout_constraintBottom_toBottomOf="@+id/currencyRateTrendIcon"/>
+    <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:id="@+id/currencyRateTrendIcon"
+            app:layout_constraintStart_toStartOf="@+id/currencyRateLastValueLabel"
+            app:layout_constraintTop_toBottomOf="@+id/currencyRateLastValueLabel"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginGuidelineTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginGuidelineMiddle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginGuidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginGuidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.cardview.widget.CardView
+            android:layout_width="395dp"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/marginGuidelineRight" android:id="@+id/cardView2">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorPrimary">
+
+            <TextView
+                    android:text="@string/currency_rate_ask_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateAskLabel"
+                    style="@style/AppTheme.TextView.Label.Big"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineLeft"
+                    android:layout_marginStart="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/currencyRateBidLabel"/>
+            <TextView
+                    tools:text="@string/currency_rate_ask_example"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateAskLabelValue"
+                    style="@style/AppTheme.TextView.Label.Medium"
+                    app:layout_constraintTop_toTopOf="@+id/currencyRateAskLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/currencyRateAskLabel"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineMiddle"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/marginCardGuidelineLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.00"/>
+
+            <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/marginCardGuidelineMiddle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.30"/>
+            <TextView
+                    android:text="@string/currency_rate_bid_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateBidLabel"
+                    style="@style/AppTheme.TextView.Label.Big"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineLeft"
+                    android:layout_marginStart="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintTop_toBottomOf="@+id/currencyRateAskLabel"
+                    app:layout_constraintBottom_toTopOf="@+id/currencyRateOpenLabel"/>
+            <TextView
+                    tools:text="@string/currency_rate_bid_example"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateBidLabelValue"
+                    style="@style/AppTheme.TextView.Label.Medium"
+                    app:layout_constraintTop_toTopOf="@+id/currencyRateBidLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/currencyRateBidLabel"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineMiddle"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+            <TextView
+                    android:text="@string/currency_rate_open_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateOpenLabel"
+                    style="@style/AppTheme.TextView.Label.Big"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineLeft"
+                    android:layout_marginStart="@dimen/margin_medium" android:layout_marginTop="@dimen/margin_medium"
+                    app:layout_constraintTop_toBottomOf="@+id/currencyRateBidLabel"
+                    app:layout_constraintBottom_toTopOf="@+id/currencyRateVolumeLabel"/>
+            <TextView
+                    tools:text="@string/currency_rate_open_example"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateOpenLabelValue"
+                    style="@style/AppTheme.TextView.Label.Medium"
+                    app:layout_constraintTop_toTopOf="@+id/currencyRateOpenLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/currencyRateOpenLabel"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineMiddle"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+            <TextView
+                    android:text="@string/currency_rate_volume_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateVolumeLabel"
+                    style="@style/AppTheme.TextView.Label.Big"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineLeft"
+                    android:layout_marginStart="@dimen/margin_medium" app:layout_constraintTop_toBottomOf="@+id/currencyRateOpenLabel"
+                    app:layout_constraintBottom_toTopOf="@+id/currencyRateTimestampLabel"/>
+            <TextView
+                    tools:text="@string/currency_rate_volume_example"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateVolumeLabelValue"
+                    style="@style/AppTheme.TextView.Label.Medium"
+                    app:layout_constraintTop_toTopOf="@+id/currencyRateVolumeLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/currencyRateVolumeLabel"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineMiddle"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+            <TextView
+                    android:text="@string/currency_rate_timestamp_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateTimestampLabel"
+                    style="@style/AppTheme.TextView.Label.Big"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineLeft"
+                    android:layout_marginStart="@dimen/margin_medium" app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/currencyRateVolumeLabel"/>
+            <TextView
+                    tools:text="@string/currency_rate_timestamp_example"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/currencyRateTimestampLabelValue"
+                    style="@style/AppTheme.TextView.Label.Medium"
+                    app:layout_constraintTop_toTopOf="@+id/currencyRateTimestampLabel"
+                    app:layout_constraintBottom_toBottomOf="@+id/currencyRateTimestampLabel"
+                    app:layout_constraintStart_toStartOf="@+id/marginCardGuidelineMiddle"
+                    android:layout_marginStart="@dimen/margin_medium"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

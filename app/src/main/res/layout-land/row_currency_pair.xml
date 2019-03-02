@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+    <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent" app:srcCompat="@drawable/empty"
+            android:id="@+id/rowCurrencypairSymbolIcon"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="@dimen/margin_medium"
+            android:layout_marginTop="@dimen/margin_medium" app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="@dimen/margin_medium"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="@dimen/margin_medium"
+            app:layout_constraintEnd_toStartOf="@+id/marginGuidelineLeft"/>
+    <TextView
+            tools:text="@string/row_currency_label_example"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/AppTheme.TextView.Title.Light"
+            android:id="@+id/rowCurrencyPairTitleLabel"
+            app:layout_constraintTop_toTopOf="@+id/rowCurrencypairSymbolIcon"
+            app:layout_constraintBottom_toBottomOf="@+id/rowCurrencypairSymbolIcon"
+            app:layout_constraintEnd_toStartOf="@+id/marginGuidelineRight" android:layout_marginEnd="@dimen/margin_medium"
+            app:layout_constraintStart_toStartOf="@+id/marginGuidelineLeft" android:layout_marginStart="@dimen/margin_medium"/>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginGuidelineLeft"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.2" />
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/marginGuidelineRight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

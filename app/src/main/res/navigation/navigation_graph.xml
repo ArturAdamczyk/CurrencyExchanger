@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/navigation_graph.xml"
+            app:startDestination="@id/currenciesFragment">
+    <fragment android:id="@+id/currenciesFragment"
+              android:name="art.com.currencyexchanger.framework.presentation.features.currency_pairs.CurrencyPairsFragment"
+              android:label="@string/fragment_currency_pairs_label" tools:layout="@layout/fragment_currency">
+        <action android:id="@+id/action_currenciesFragment_to_currencyRateFragment"
+                app:destination="@id/currencyRateFragment"/>
+        <argument android:name="currencyPairId" app:argType="string"/>
+        <argument android:name="baseCurrency" app:argType="string"/>
+    </fragment>
+    <fragment android:id="@+id/currencyRateFragment"
+              android:name="art.com.currencyexchanger.framework.presentation.features.currency_rate.CurrencyRateFragment"
+              android:label="@string/fragment_currency_rate_label" tools:layout="@layout/fragment_currency_rate"/>
+</navigation>

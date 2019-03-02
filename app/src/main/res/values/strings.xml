@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">CurrencyExchanger</string>
+    <string name="fragment_currency_rate_label">currency rate</string>
+    <string name="fragment_currency_pairs_label">currency pairs</string>
+
+    <string name="currency_rate_ask_label">ask</string>
+    <string name="currency_rate_bid_label">bid</string>
+    <string name="currency_rate_timestamp_label">when</string>
+    <string name="currency_rate_volume_label">volume</string>
+    <string name="currency_rate_open_label">open</string>
+
+    <string name="currency_rate_ask_example">2567</string>
+    <string name="currency_rate_bid_example">2789</string>
+    <string name="currency_rate_timestamp_example">10/06/2018</string>
+    <string name="currency_rate_volume_example">1565775758</string>
+    <string name="currency_rate_open_example">2500</string>
+    <string name="currency_rate_change_example">5%</string>
+    <string name="currency_rate_last_example">2650</string>
+    <string name="currency_rate_title_example">BTC</string>
+    <string name="currency_rate_change_value">%f %%</string>
+
+    <string name="row_currency_label_example">BTC</string>
+
+    <string name="currency_pairs_error_label">Ooops something went wrong... :(</string>
+    <string name="currency_pairs_api_error">Failed to fetch data. Try again manually</string>
+    <string name="currency_rate_api_error">Failed to fetch data</string>
+    <string name="data_fetched_success">Data fetched successfully</string>
+
+    <string name="ticker_subscribe_success">Ticker subscribe success</string>
+    <string name="ticker_subscribe_failure">Ticker subscribe failure</string>
+    <string name="ticker_unsubscribe_success">Ticker unsubscribe success</string>
+    <string name="ticker_unsubscribe_failure">Ticker unsubscribe failure</string>
+    <string name="ticker_subscription_obtain_failure">Ticker subscription failure</string>
+</resources>
