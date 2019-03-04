@@ -8,8 +8,8 @@
         tools:context=".framework.presentation.features.currency_rate.CurrencyRateFragment">
 
     <ImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/currency_rate_symbol_icon"
+            android:layout_height="@dimen/currency_rate_symbol_icon"
             style="@style/AppTheme.TextView.Title"
             android:id="@+id/currencyRateSymbolIcon" android:layout_marginTop="@dimen/margin_medium"
             app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
@@ -46,8 +46,8 @@
             app:layout_constraintTop_toTopOf="@+id/currencyRateTrendIcon"
             app:layout_constraintBottom_toBottomOf="@+id/currencyRateTrendIcon"/>
     <ImageView
-            android:layout_width="25dp"
-            android:layout_height="25dp"
+            android:layout_width="@dimen/currency_rate_trend_icon"
+            android:layout_height="@dimen/currency_rate_trend_icon"
             android:id="@+id/currencyRateTrendIcon"
             app:layout_constraintStart_toStartOf="@+id/currencyRateLastValueLabel"
             app:layout_constraintTop_toBottomOf="@+id/currencyRateLastValueLabel"/>

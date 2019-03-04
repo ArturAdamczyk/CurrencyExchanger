@@ -36,7 +36,7 @@ class CurrencyRateViewModel(
     }
 
     fun unsubscribeRefreshService(){
-        repository.unsubscribeToCurrencyRate(currencyId)
+        disposables += repository.unsubscribeToCurrencyRate(currencyId)
             .subscribeBy(
                 onSuccess = { logMessage(resources.getString(R.string.ticker_unsubscribe_success)) },
                 onError = { logMessage(resources.getString(R.string.ticker_unsubscribe_failure))  }
@@ -44,7 +44,7 @@ class CurrencyRateViewModel(
     }
 
     fun startRefreshService(){
-        repository.getCurrencyRateSubscription()
+        disposables += repository.getCurrencyRateSubscription()
             .subscribeBy(
                 onNext = { response -> _currencyRate.postValue(response) },
                 onError = { logMessage(resources.getString(R.string.ticker_subscription_obtain_failure))  }
@@ -52,17 +52,17 @@ class CurrencyRateViewModel(
     }
 
     fun subscribeRefreshService(){
-            repository.subscribeToCurrencyRate(currencyId)
-                .subscribeBy(
-                    onSuccess = { response ->
-                        startRefreshService()
-                        logMessage(resources.getString(R.string.ticker_subscribe_success))
-                    },
-                    onError = {
-                        startRefreshService()
-                        logMessage(resources.getString(R.string.ticker_subscribe_success))
-                    }
-                )
+        disposables += repository.subscribeToCurrencyRate(currencyId)
+            .subscribeBy(
+                onSuccess = { response ->
+                    startRefreshService()
+                    logMessage(resources.getString(R.string.ticker_subscribe_success))
+                },
+                onError = {
+                    startRefreshService()
+                    logMessage(resources.getString(R.string.ticker_subscribe_success))
+                }
+            )
 
-        }
+    }
 }
