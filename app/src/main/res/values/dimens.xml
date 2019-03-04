@@ -13,4 +13,9 @@
     <dimen name="label_text_size">16sp</dimen>
     <dimen name="label_text_size_small">8sp</dimen>
     <dimen name="label_text_size_big">20sp</dimen>
+
+    <dimen name="fragment_currency_refresh_icon_size">96dp</dimen>
+    <dimen name="row_currency_pair_height">100dp</dimen>
+    <dimen name="currency_rate_symbol_icon">50dp</dimen>
+    <dimen name="currency_rate_trend_icon">25dp</dimen>
 </resources>

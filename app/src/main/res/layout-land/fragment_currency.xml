@@ -35,8 +35,8 @@
                 app:layout_constraintTop_toTopOf="@+id/currencyPairsMarginGuidelineMiddle"/>
         <ImageView
                 android:src="@drawable/refresh"
-                android:layout_width="96dp"
-                android:layout_height="96dp"
+                android:layout_width="@dimen/fragment_currency_refresh_icon_size"
+                android:layout_height="@dimen/fragment_currency_refresh_icon_size"
                 android:visibility="gone"
                 android:id="@+id/currencyPairsRefreshIcon" android:layout_marginTop="@dimen/margin_medium"
                 app:layout_constraintTop_toBottomOf="@+id/currencyPairsErrorLabel" app:layout_constraintStart_toStartOf="@+id/currencyPairsErrorLabel"
