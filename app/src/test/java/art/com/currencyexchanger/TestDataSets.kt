@@ -23,7 +23,7 @@ class TestDataSets {
 
     private object CurrencyRateSet{
         val set_1 = CurrencyRate("BTCUSD",3827.98F,3827.97F,3827.98F,3828F,40485.58109F, "2019-03-01T12:45:00.370Z", 5.229763E-4F)
-        val set_2 = CurrencyRate("BTCUSD",3827.98F,3827.97F,3827.98F,3828F,40485.58109F, "2019-03-01T12:45:00.370Z", 2F)
+        val set_2 = CurrencyRate("BTCUSD",3827.98F,38.97F,3827.98F,3828F,40485.58109F, "2019-03-01T12:45:00.370Z", 26767F)
     }
 
     private object CurrencyRateResponseSet{

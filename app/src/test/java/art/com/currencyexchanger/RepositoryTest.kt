@@ -9,6 +9,8 @@ import org.junit.runner.RunWith
 import org.junit.runners.JUnit4
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import art.com.currencyexchanger.interfaces.WebSocketApi
+import art.com.currencyexchanger.utilities.WebSocketRequestBuilder
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever
@@ -23,7 +25,9 @@ import org.junit.runners.model.Statement
 @RunWith(JUnit4::class)
 class RepositoryTest {
     private lateinit var repository: Repository
-    private val api = mock<RestApi>()
+    private val restApi = mock<RestApi>()
+    private val webSocketClient = mock<WebSocketApi>()
+    private val webSocketRequestBuilder = mock<WebSocketRequestBuilder>()
     private lateinit var testDataSets: TestDataSets
 
     companion object {
@@ -37,47 +41,47 @@ class RepositoryTest {
 
     @Before
     fun init() {
-        repository = RepositoryProvider(api)
+        repository = RepositoryProvider(restApi, webSocketClient, webSocketRequestBuilder)
         testDataSets = TestDataSets()
     }
 
     @Test
     fun test_getCurrencyPairs_pass() {
         val response = testDataSets.getCurrencyPairsResponseSet()
-        whenever(api.getCurrencyPairs()).thenReturn(Single.just(response))
+        whenever(restApi.getCurrencyPairs()).thenReturn(Single.just(response))
 
         val expectedList = testDataSets.getCurrencyPairSet()
 
         repository.getCurrencyPairs()
             .test()
             .assertValue(expectedList)
-        verify(api).getCurrencyPairs()
+        verify(restApi).getCurrencyPairs()
     }
 
     @Test
     fun test_getCurrencyRate_pass() {
         val response = testDataSets.getCurrencyRateResponseSet()
-        whenever(api.getCurrencyRate("BTCUSD")).thenReturn(Single.just(response))
+        whenever(restApi.getCurrencyRate("BTCUSD")).thenReturn(Single.just(response))
 
         val expectedList = testDataSets.getCurrencyRateSet("1")
 
         repository.getCurrencyRate("BTCUSD")
             .test()
             .assertValue(expectedList)
-        verify(api).getCurrencyRate("BTCUSD")
+        verify(restApi).getCurrencyRate("BTCUSD")
     }
 
     @Test
     fun test_getCurrencyRate_fail() {
         val response = testDataSets.getCurrencyRateResponseSet()
-        whenever(api.getCurrencyRate("BTCUSD")).thenReturn(Single.just(response))
+        whenever(restApi.getCurrencyRate("BTCUSD")).thenReturn(Single.just(response))
 
         val expectedList = testDataSets.getCurrencyRateSet("2")
 
         repository.getCurrencyRate("BTCUSD")
             .test()
             .assertNever(expectedList)
-        verify(api).getCurrencyRate("BTCUSD")
+        verify(restApi).getCurrencyRate("BTCUSD")
     }
 
 
