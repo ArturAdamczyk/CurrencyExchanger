@@ -83,11 +83,6 @@ class CurrencyRateFragment: BaseFragment<CurrencyRateViewModel>(CurrencyRateView
         super.onPause()
         viewModel.unsubscribeRefreshService()
     }
-
-    override fun onResume(){
-        super.onResume()
-        viewModel.subscribeRefreshService()
-    }
 }
 
 
