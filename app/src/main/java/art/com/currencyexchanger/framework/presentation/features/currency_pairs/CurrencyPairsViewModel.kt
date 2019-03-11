@@ -6,8 +6,11 @@ import androidx.lifecycle.MutableLiveData
 import art.com.currencyexchanger.framework.presentation.base.BaseViewModel
 import art.com.currencyexchanger.interfaces.Repository
 import art.com.currencyexchanger.models.domain.CurrencyPair
+
+import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.plusAssign
-import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 
 class CurrencyPairsViewModel(
     app: Application,
@@ -22,9 +25,13 @@ class CurrencyPairsViewModel(
 
     fun getCurrencyPairs(){
         disposables += repository.getCurrencyPairs()
-            .subscribeBy(
-                onSuccess = { response -> _currencyPairs.postValue(response) },
-                onError = { _fetchError.postValue(true) }
+            .subscribe(
+                { response ->
+                    _currencyPairs.postValue(response)
+                },
+                {
+                    _fetchError.postValue(true)
+                }
             )
     }
 

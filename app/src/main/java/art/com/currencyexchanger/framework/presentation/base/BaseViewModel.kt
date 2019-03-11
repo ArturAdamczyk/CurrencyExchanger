@@ -45,7 +45,7 @@ abstract class BaseViewModel(
         _logMessage.value = null
     }
 
-    public override fun onCleared() {
+    override fun onCleared() {
         disposables.dispose()
         super.onCleared()
     }

@@ -44,25 +44,19 @@ class CurrencyRateViewModel(
     }
 
     fun startRefreshService(){
+        subscribeRefreshService()
         disposables += repository.getCurrencyRateSubscription()
             .subscribeBy(
                 onNext = { response -> _currencyRate.postValue(response) },
-                onError = { logMessage(resources.getString(R.string.ticker_subscription_obtain_failure))  }
+                onError = { logMessage(resources.getString(R.string.ticker_subscription_obtain_failure)) }
             )
     }
 
     fun subscribeRefreshService(){
         disposables += repository.subscribeToCurrencyRate(currencyId)
             .subscribeBy(
-                onSuccess = { response ->
-                    startRefreshService()
-                    logMessage(resources.getString(R.string.ticker_subscribe_success))
-                },
-                onError = {
-                    startRefreshService()
-                    logMessage(resources.getString(R.string.ticker_subscribe_success))
-                }
+                onSuccess = { response -> logMessage(resources.getString(R.string.ticker_subscribe_success)) },
+                onError = { logMessage(resources.getString(R.string.ticker_subscribe_success)) }
             )
-
     }
 }

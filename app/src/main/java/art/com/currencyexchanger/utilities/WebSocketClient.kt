@@ -8,6 +8,7 @@ import com.google.gson.Gson
 import com.google.gson.JsonParseException
 import io.reactivex.Observable
 import io.reactivex.Single
+import io.reactivex.observables.ConnectableObservable
 import okhttp3.*
 import okio.ByteString
 
@@ -16,7 +17,7 @@ class WebSocketClient(
     private val messenger: AppMessage
 ): WebSocketApi {
     private lateinit var INSTANCE: WebSocket
-    private lateinit var subscription: Observable<CurrencyRateResponse>
+    private lateinit var subscription: ConnectableObservable<CurrencyRateResponse>
 
     override fun subscribeTicker(request: String): Single<Boolean> = Single.create{ INSTANCE?.send(request) }
 
@@ -25,7 +26,7 @@ class WebSocketClient(
     override fun unsubscribeTicker(request: String): Single<Boolean> =  Single.create{ INSTANCE?.send(request) }
 
     override fun start(request: Request) {
-        subscription = Observable.create<CurrencyRateResponse>{ emitter ->
+        subscription = ConnectableObservable.create<CurrencyRateResponse>{ emitter ->
             INSTANCE = WebSocketFactory.connect(object : WebSocketListener() {
                 private val NORMAL_CLOSURE_STATUS = 1000
                 override fun onOpen(webSocket: WebSocket?, response: Response?) {
@@ -58,7 +59,8 @@ class WebSocketClient(
                     messenger.logMessage(CLASS_TAG, t!!.message!!)
                 }
             }, okHttpClient, request)
-        }
+        }.publish()
+        subscription.connect()
     }
 
     companion object {
